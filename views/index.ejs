@@ -9,6 +9,50 @@
     <title>미세먼지DUST</title>
   </head>
   <body>
-    안녕하세요? 미세먼지 정보 홈페이지 DUST 입니다~
+    <header>
+      <div class="header__top">
+        <img alt="headerLogo" src="/img/mise.jpg" class="header__top_logo" />
+        <span class="header__top_text">DUST</span>
+      </div>
+      <nav>
+        <ul>
+          <li>현재</li>
+          <li>내일</li>
+        </ul>
+        <div class="rolling">전국 미세먼지 롤링</div>
+      </nav>
+    </header>
+    <section class="section__today">
+      <div class="section__today_wrap">
+        <div class="today_leftDiv">
+          <canvas id="canvas_today" width="500px" height="600px"></canvas>
+        </div>
+        <div class="today_rightDiv">
+          <ul>
+            <li>
+              <span>시도이름</span>
+              <div>서울</div>
+              <input class="input1" placeholder="hi" />
+            </li>
+            <li>
+              <span>미세먼지</span>
+              <div></div>
+            </li>
+            <li>
+              <span>초미세먼지</span>
+              <div></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="section__tomorrow">
+      <div class="section__tomorrow_wrap">
+        <div class="tomorrow__leftDiv">
+          <canvas id="canvas_tomorrow" width="600px" height="700px"></canvas>
+        </div>
+        <div class="tomorrow__rightDiv"></div>
+      </div>
+    </section>
   </body>
 </html>

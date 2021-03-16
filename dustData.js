@@ -9,20 +9,19 @@ const dustData = (sidoName, callback) => {
     "tJSHfvCHbjGnll5ct5FeUTO0S70BCwNaXunsCf22XUCI11EHZWIUvxcOv6IMGCQo0d7Ga0USPnczrYzZ%2FZFGvA%3D%3D";
   const requestUrl =
     "http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty";
-  let queryParams = "?" + encodeURIComponent("ServiceKey") + "=" + serviceKey; //서비스키
-  queryParams +=
-    "&" + encodeURIComponent("numOfRows") + "=" + encodeURIComponent("1");
-  queryParams +=
-    "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1");
-  queryParams +=
-    "&" + encodeURIComponent("dataTerm") + "=" + encodeURIComponent("DAILY"); //데이터측정시간
 
-  queryParams +=
-    "&" + encodeURIComponent("sidoName") + "=" + encodeURIComponent(sidoName); //시도 이름
-  queryParams +=
-    "&" + encodeURIComponent("ver") + "=" + encodeURIComponent("1.3");
-  queryParams +=
-    "&" + encodeURIComponent("_returnType") + "=" + encodeURIComponent("json");
+  let queryParams = `?${encodeURIComponent(
+    "ServiceKey"
+  )}=${serviceKey}&${encodeURIComponent("pageNo")}=${encodeURIComponent(
+    "1"
+  )}&${encodeURIComponent("dataTerm")}=${encodeURIComponent(
+    "DAILY"
+  )}&${encodeURIComponent("sidoName")}=${encodeURIComponent(
+    sidoName
+  )}&${encodeURIComponent("ver")}=${encodeURIComponent(
+    "1.3"
+  )}&${encodeURIComponent("_returnType")}=${encodeURIComponent("json")}`;
+
   request(
     {
       url: requestUrl + queryParams,
