@@ -1,22 +1,11 @@
-import { drawMap, markCity } from "./canvas.js";
-import { JennySelector, searchChildren } from "./utils.js";
-const body = {
-  sidoName: "서울",
-};
-
-const loadDustData = () => {
-  fetch("http://localhost:3000/city", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  })
-    .then((res) => res.json())
-    .then((result) => console.table(result.list[0]));
-};
+import { drawTodayMap } from "./todaySection.js";
+import { drawTomorrowMap } from "./tomorrowSection.js";
+import { loadNewsData } from "./manageDatas.js";
+import { JennySelector } from "./utils.js";
 
 window.onload = function () {
-  loadDustData();
-  drawMap();
-  markCity();
+  loadNewsData();
+  drawTodayMap();
+  drawTomorrowMap();
   console.log(JennySelector("rolling"));
 };

@@ -1,6 +1,7 @@
 const express = require("express");
 const sassMiddleware = require("node-sass-middleware");
 const dustData = require("./dustData");
+const newsData = require("./newsData");
 
 const path = require("path");
 const app = express();
@@ -24,6 +25,12 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.post("/city", (req, res) => {
   dustData(req.body.sidoName, (body) => {
+    return res.send(body);
+  });
+});
+
+app.post("/news", (req, res) => {
+  newsData(req.body.date, (body) => {
     return res.send(body);
   });
 });

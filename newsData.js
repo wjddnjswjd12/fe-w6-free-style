@@ -4,11 +4,11 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const dustData = (sidoName, callback) => {
+const newsData = (date, callback) => {
   const serviceKey =
     "tJSHfvCHbjGnll5ct5FeUTO0S70BCwNaXunsCf22XUCI11EHZWIUvxcOv6IMGCQo0d7Ga0USPnczrYzZ%2FZFGvA%3D%3D";
   const requestUrl =
-    "http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty";
+    "http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getMinuDustFrcstDspth";
 
   let queryParams = `?${encodeURIComponent(
     "ServiceKey"
@@ -16,8 +16,8 @@ const dustData = (sidoName, callback) => {
     "1"
   )}&${encodeURIComponent("dataTerm")}=${encodeURIComponent(
     "MONTH"
-  )}&${encodeURIComponent("sidoName")}=${encodeURIComponent(
-    sidoName
+  )}&${encodeURIComponent("searchDate")}=${encodeURIComponent(
+    date
   )}&${encodeURIComponent("ver")}=${encodeURIComponent(
     "1.3"
   )}&${encodeURIComponent("_returnType")}=${encodeURIComponent("json")}`;
@@ -33,4 +33,4 @@ const dustData = (sidoName, callback) => {
   );
 };
 
-module.exports = dustData;
+module.exports = newsData;

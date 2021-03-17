@@ -24,23 +24,26 @@
     </header>
     <section class="section__today">
       <div class="section__today_wrap">
-        <div class="today_leftDiv">
+        <div class="leftDiv">
           <canvas id="canvas_today" width="500px" height="600px"></canvas>
         </div>
-        <div class="today_rightDiv">
+        <div class="rightDiv">
           <ul>
             <li>
+              <span>측정일시</span>
+              <div class="today_date"></div>
+            </li>
+            <li>
               <span>시도이름</span>
-              <div>서울</div>
-              <input class="input1" placeholder="hi" />
+              <div class="today_sido"></div>
             </li>
             <li>
-              <span>미세먼지</span>
-              <div></div>
+              <span>미세먼지 농도</span>
+              <div class="today_value"></div>
             </li>
             <li>
-              <span>초미세먼지</span>
-              <div></div>
+              <span>미세먼지 지수</span>
+              <div class="today_grade"></div>
             </li>
           </ul>
         </div>
@@ -48,10 +51,25 @@
     </section>
     <section class="section__tomorrow">
       <div class="section__tomorrow_wrap">
-        <div class="tomorrow__leftDiv">
-          <canvas id="canvas_tomorrow" width="600px" height="700px"></canvas>
+        <div class="leftDiv">
+          <canvas id="canvas_tomorrow" width="500px" height="600px"></canvas>
         </div>
-        <div class="tomorrow__rightDiv"></div>
+        <div class="rightDiv">
+          <ul>
+            <li>
+              <span>시도이름</span>
+              <div>서울</div>
+            </li>
+            <li>
+              <span>미세먼지(PM10)</span>
+              <div>나쁨</div>
+            </li>
+            <li>
+              <span>미세먼지(PM24)</span>
+              <div>나쁨</div>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
   </body>
