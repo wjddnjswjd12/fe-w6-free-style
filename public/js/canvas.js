@@ -37,8 +37,6 @@ function drawMap() {
 }
 
 function markCity(ctx, x, y, name, color) {
-  //수정중
-
   ctx.fillStyle = color;
   ctx.beginPath();
   ctx.arc(x, y, 20, 0, 2 * Math.PI);
