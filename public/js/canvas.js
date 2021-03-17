@@ -18,10 +18,8 @@ const sidoLists = [
   { name: "제주", x: 115, y: 570 },
 ];
 const radius = 20;
-function drawMap() {
-  let canvasToday = document.getElementById("canvas_today");
-  let draw = canvasToday.getContext("2d");
-
+function drawMap(ctx) {
+  let draw = ctx.getContext("2d");
   let img = new Image();
   img.src = "img/map1.png";
   img.onload = function () {
@@ -31,8 +29,8 @@ function drawMap() {
     });
   };
 
-  canvasToday.addEventListener("click", (e) => {
-    checkMouseMovement(e);
+  ctx.addEventListener("click", (e) => {
+    checkMouseMovement(e, draw);
   });
 }
 
@@ -47,27 +45,15 @@ function markCity(ctx, x, y, name, color) {
   ctx.fillText(name, x - 13, y + 4);
 }
 
-function checkMouseMovement(evt) {
+function checkMouseMovement(evt, ctx) {
   let x = evt.offsetX;
   let y = evt.offsetY;
 
   sidoLists.forEach((sido) => {
     if (getDistanceBtwPoints(x, sido.x, y, sido.y) <= radius) {
-      markCity(
-        document.getElementById("canvas_today").getContext("2d"),
-        sido.x,
-        sido.y,
-        sido.name,
-        "pink"
-      );
+      markCity(ctx, sido.x, sido.y, sido.name, "pink");
     } else if (!getDistanceBtwPoints(x, sido.x, y, sido.y) <= radius) {
-      markCity(
-        document.getElementById("canvas_today").getContext("2d"),
-        sido.x,
-        sido.y,
-        sido.name,
-        "#ffba3b"
-      );
+      markCity(ctx, sido.x, sido.y, sido.name, "#ffba3b");
     }
   });
 }

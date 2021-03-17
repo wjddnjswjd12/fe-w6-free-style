@@ -1,4 +1,5 @@
-import { drawMap } from "./canvas.js";
+import { drawTodayMap } from "./todaySection.js";
+import { drawTomorrowMap } from "./tomorrowSection.js";
 import { JennySelector } from "./utils.js";
 const body = {
   sidoName: "서울",
@@ -16,6 +17,7 @@ const loadDustData = () => {
 
 window.onload = function () {
   loadDustData();
-  drawMap();
+  drawTodayMap();
+  drawTomorrowMap();
   console.log(JennySelector("rolling"));
 };
