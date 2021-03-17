@@ -15,7 +15,7 @@ const dustData = (sidoName, callback) => {
   )}=${serviceKey}&${encodeURIComponent("pageNo")}=${encodeURIComponent(
     "1"
   )}&${encodeURIComponent("dataTerm")}=${encodeURIComponent(
-    "DAILY"
+    "MONTH"
   )}&${encodeURIComponent("sidoName")}=${encodeURIComponent(
     sidoName
   )}&${encodeURIComponent("ver")}=${encodeURIComponent(

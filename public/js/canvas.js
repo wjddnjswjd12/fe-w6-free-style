@@ -1,3 +1,5 @@
+import { loadDustData } from "./manageDatas.js";
+
 const sidoLists = [
   { name: "서울", x: 160, y: 120 },
   { name: "경기", x: 185, y: 165 },
@@ -52,6 +54,7 @@ function checkMouseMovement(evt, ctx) {
   sidoLists.forEach((sido) => {
     if (getDistanceBtwPoints(x, sido.x, y, sido.y) <= radius) {
       markCity(ctx, sido.x, sido.y, sido.name, "pink");
+      loadDustData(sido.name);
     } else if (!getDistanceBtwPoints(x, sido.x, y, sido.y) <= radius) {
       markCity(ctx, sido.x, sido.y, sido.name, "#ffba3b");
     }
