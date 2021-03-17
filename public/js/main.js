@@ -1,5 +1,5 @@
-import { drawMap, markCity } from "./canvas.js";
-import { JennySelector, searchChildren } from "./utils.js";
+import { drawMap } from "./canvas.js";
+import { JennySelector } from "./utils.js";
 const body = {
   sidoName: "서울",
 };
@@ -17,6 +17,5 @@ const loadDustData = () => {
 window.onload = function () {
   loadDustData();
   drawMap();
-  markCity();
   console.log(JennySelector("rolling"));
 };
