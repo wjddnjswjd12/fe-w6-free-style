@@ -15,25 +15,34 @@ const loadDustData = (name) => {
       JennySelector("today_sido").innerHTML = name;
       JennySelector("today_value").innerHTML = result.list[0].pm10Value;
       JennySelector("today_grade").innerHTML = `<img src="img/${getMiseGrade(
-        result.list[0].pm10Grade
+        result.list[0].pm10Grade1h
       )}.PNG"></img>`;
     });
 };
 
 const loadNewsData = () => {
   let body = {
-    date: "2021-03-17",
+    date: getDate(),
   };
-  fetch("http://localhost:3000/news", {
+  return fetch("http://localhost:3000/news", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
-  })
-    .then((res) => res.json())
-    .then((result) => {
-      console.log(result);
-    });
+  }).then((res) => res.json());
 };
+
+const loadMyTownData = () => {
+  let body = {
+    station: "서초구",
+  };
+  return fetch("http://localhost:3000/myTown", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  }).then((res) => res.json());
+};
+
+loadMyTownData();
 
 const getMiseGrade = (grade) => {
   //
@@ -49,4 +58,9 @@ const getMiseGrade = (grade) => {
   }
 };
 
-export { loadDustData, loadNewsData };
+const getDate = () => {
+  let today = new Date();
+  return `${today.getFullYear()}-0${today.getMonth() + 1}-${today.getDate()}`;
+};
+
+export { loadDustData, loadNewsData, loadMyTownData };

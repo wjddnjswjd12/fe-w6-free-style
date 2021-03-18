@@ -2,6 +2,7 @@ const express = require("express");
 const sassMiddleware = require("node-sass-middleware");
 const dustData = require("./dustData");
 const newsData = require("./newsData");
+const myTownData = require("./myTownData");
 
 const path = require("path");
 const app = express();
@@ -31,6 +32,12 @@ app.post("/city", (req, res) => {
 
 app.post("/news", (req, res) => {
   newsData(req.body.date, (body) => {
+    return res.send(body);
+  });
+});
+
+app.post("/myTown", (req, res) => {
+  myTownData(req.body.station, (body) => {
     return res.send(body);
   });
 });

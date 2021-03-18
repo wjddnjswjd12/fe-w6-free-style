@@ -25,6 +25,7 @@
     <section class="section__today">
       <div class="section__today_wrap">
         <div class="leftDiv">
+          <div class="left_subtitle">전국 미세먼지 현황</div>
           <canvas id="canvas_today" width="500px" height="600px"></canvas>
         </div>
         <div class="rightDiv">
@@ -51,24 +52,33 @@
     </section>
     <section class="section__tomorrow">
       <div class="section__tomorrow_wrap">
-        <div class="leftDiv">
-          <canvas id="canvas_tomorrow" width="500px" height="600px"></canvas>
+        <div class="tom_leftDiv">
+          <div class="tom_left_subtitle">
+            <h3>미세먼지 한반도 대기질 예측(2일)</h3>
+          </div>
+          <div class="tom_left_img"></div>
+          <div class="tom_left_info">
+            <div class="info_box_title">
+              <h3>대기질 예보</h3>
+            </div>
+            <div class="info_box_text"></div>
+          </div>
         </div>
-        <div class="rightDiv">
-          <ul>
-            <li>
-              <span>시도이름</span>
-              <div>서울</div>
-            </li>
-            <li>
-              <span>미세먼지(PM10)</span>
-              <div>나쁨</div>
-            </li>
-            <li>
-              <span>미세먼지(PM24)</span>
-              <div>나쁨</div>
-            </li>
-          </ul>
+        <div class="tom_rightDiv">
+          <div class="tom_right_myTown">
+            <div class="myTown_subtitle">
+              <h3>우리동네 대기정보</h3>
+            </div>
+            <div class="myTown_info">
+              <button>측정소 고르기</button>
+              <div class="myTown_info_chart">
+                <canvas id="canvas_chart" width="260px" height="150px"></canvas>
+                <div class="myTown_info_place"></div>
+                <div class="pointer">🠕</div>
+              </div>
+            </div>
+            <div class="myTown_info_table"></div>
+          </div>
         </div>
       </div>
     </section>

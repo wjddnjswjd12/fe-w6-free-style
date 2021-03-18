@@ -22,6 +22,8 @@ const sidoLists = [
 const radius = 20;
 function drawMap(ctx) {
   let draw = ctx.getContext("2d");
+  draw.fillStyle = "#fff";
+  draw.fillRect(0, 0, 500, 600);
   let img = new Image();
   img.src = "img/map1.png";
   img.onload = function () {
@@ -32,7 +34,7 @@ function drawMap(ctx) {
   };
 
   ctx.addEventListener("click", (e) => {
-    checkMouseMovement(e, draw);
+    checkMouseClick(e, draw);
   });
 }
 
@@ -41,13 +43,12 @@ function markCity(ctx, x, y, name, color) {
   ctx.beginPath();
   ctx.arc(x, y, 20, 0, 2 * Math.PI);
   ctx.fill();
-
   ctx.font = "12px Verdana ";
   ctx.fillStyle = "#fff";
   ctx.fillText(name, x - 13, y + 4);
 }
 
-function checkMouseMovement(evt, ctx) {
+function checkMouseClick(evt, ctx) {
   let x = evt.offsetX;
   let y = evt.offsetY;
 
@@ -61,8 +62,67 @@ function checkMouseMovement(evt, ctx) {
   });
 }
 
+// function checkMouseMovement(evt, ctx) {
+//   let x = evt.offsetX;
+//   let y = evt.offsetY;
+
+//   sidoLists.forEach((sido) => {
+//     if (getDistanceBtwPoints(x, sido.x, y, sido.y) <= radius) {
+//       markCity(ctx, sido.x, sido.y, sido.name, "pink");
+//     } else if (!getDistanceBtwPoints(x, sido.x, y, sido.y) <= radius) {
+//       markCity(ctx, sido.x, sido.y, sido.name, "#ffba3b");
+//     }
+//   });
+// }
+
 function getDistanceBtwPoints(x1, x2, y1, y2) {
   return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
 }
 
-export { drawMap };
+function drawChart() {
+  let chart = document.getElementById("canvas_chart").getContext("2d");
+  drawArc(chart);
+  chart.fillStyle = "white";
+  chart.beginPath();
+  chart.arc(130, 150, 90, 0, 2 * Math.PI);
+  chart.fill();
+  chart.fillStyle = "black";
+}
+
+const data = [25, 25, 75, 55];
+const color = ["blue", "green", "orange", "red"];
+
+function drawArc(chart) {
+  let startAngle = 0;
+  let nextAngle = 0;
+  for (let i = 0; i < data.length; i++) {
+    nextAngle += data[data.length - 1 - i];
+    chart.fillStyle = color[color.length - 1 - i];
+    chart.beginPath();
+    chart.moveTo(130, 150);
+    chart.arc(
+      130,
+      150,
+      120,
+      getRadian(startAngle),
+      getRadian(360 - nextAngle),
+      true
+    );
+    chart.fill();
+    markValue(chart);
+    startAngle = 360 - nextAngle;
+  }
+}
+
+function getRadian(degree) {
+  return (degree * Math.PI) / 180;
+}
+
+function markValue(chart) {
+  chart.fillStyle = "black";
+  chart.fillText("50", 10, 98);
+  chart.fillText("100", 44, 53);
+  chart.fillText("250", 195, 46);
+}
+
+export { drawMap, drawChart };

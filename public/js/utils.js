@@ -14,4 +14,4 @@ function searchChildren(node, name, list = []) {
   return list;
 }
 
-export { JennySelector, searchChildren };
+export { JennySelector };
