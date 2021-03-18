@@ -22,6 +22,8 @@ const sidoLists = [
 const radius = 20;
 function drawMap(ctx) {
   let draw = ctx.getContext("2d");
+  draw.fillStyle = "#fff";
+  draw.fillRect(0, 0, 500, 600);
   let img = new Image();
   img.src = "img/map1.png";
   img.onload = function () {

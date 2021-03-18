@@ -1,9 +1,18 @@
-import { drawMap } from "./canvas.js";
+import { loadNewsData } from "./manageDatas.js";
+import { JennySelector } from "./utils.js";
 
-function drawTomorrowMap() {
-  let canvasTomorrow = document.getElementById("canvas_tomorrow");
-
-  drawMap(canvasTomorrow);
+function renderMiseMovement() {
+  loadNewsData().then((result) => {
+    console.log(result);
+    JennySelector("tom_left_img").innerHTML = makeImgHtml(
+      result.list[0].imageUrl7
+    );
+    JennySelector("info_box_text").innerHTML = result.list[0].informOverall;
+  });
 }
 
-export { drawTomorrowMap };
+function makeImgHtml(url) {
+  return `<img src="${url}" class="misemove_img"></img>`;
+}
+
+export { renderMiseMovement };

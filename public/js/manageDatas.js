@@ -15,24 +15,20 @@ const loadDustData = (name) => {
       JennySelector("today_sido").innerHTML = name;
       JennySelector("today_value").innerHTML = result.list[0].pm10Value;
       JennySelector("today_grade").innerHTML = `<img src="img/${getMiseGrade(
-        result.list[0].pm10Grade
+        result.list[0].pm10Grade1h
       )}.PNG"></img>`;
     });
 };
 
 const loadNewsData = () => {
   let body = {
-    date: "2021-03-17",
+    date: "2021-03-18",
   };
-  fetch("http://localhost:3000/news", {
+  return fetch("http://localhost:3000/news", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
-  })
-    .then((res) => res.json())
-    .then((result) => {
-      console.log(result);
-    });
+  }).then((res) => res.json());
 };
 
 const getMiseGrade = (grade) => {
