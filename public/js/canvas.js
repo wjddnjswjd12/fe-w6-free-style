@@ -67,4 +67,42 @@ function getDistanceBtwPoints(x1, x2, y1, y2) {
   return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
 }
 
+function drawChart() {
+  let chart = document.getElementById("canvas_chart").getContext("2d");
+  drawArc(chart);
+  chart.fillStyle = "white";
+  chart.beginPath();
+  chart.arc(130, 150, 90, 0, 2 * Math.PI);
+  chart.fill();
+  chart.fillStyle = "black";
+}
+const data = [25, 25, 75, 55];
+const color = ["blue", "green", "orange", "red"];
+function drawArc(chart) {
+  let startAngle = 0;
+  let nextAngle = 0;
+  for (let i = 0; i < data.length; i++) {
+    nextAngle += data[data.length - 1 - i];
+    chart.fillStyle = color[color.length - 1 - i];
+    chart.beginPath();
+    chart.moveTo(130, 150);
+    chart.arc(
+      130,
+      150,
+      120,
+      getRadian(startAngle),
+      getRadian(360 - nextAngle),
+      true
+    );
+    chart.fill();
+    startAngle = 360 - nextAngle;
+  }
+}
+
+function getRadian(degree) {
+  return (degree * Math.PI) / 180;
+}
+
+drawChart();
+
 export { drawMap };

@@ -185,6 +185,8 @@ header {
       }
       .myTown_info {
         background: #fff;
+        display: flex;
+        flex-direction: column;
       }
     }
   }
