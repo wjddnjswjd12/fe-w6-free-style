@@ -22,7 +22,7 @@ const loadDustData = (name) => {
 
 const loadNewsData = () => {
   let body = {
-    date: "2021-03-18",
+    date: getDate(),
   };
   return fetch("http://localhost:3000/news", {
     method: "POST",
@@ -30,6 +30,19 @@ const loadNewsData = () => {
     body: JSON.stringify(body),
   }).then((res) => res.json());
 };
+
+const loadMyTownData = () => {
+  let body = {
+    station: "서초구",
+  };
+  return fetch("http://localhost:3000/myTown", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  }).then((res) => res.json());
+};
+
+loadMyTownData();
 
 const getMiseGrade = (grade) => {
   //
@@ -45,4 +58,9 @@ const getMiseGrade = (grade) => {
   }
 };
 
-export { loadDustData, loadNewsData };
+const getDate = () => {
+  let today = new Date();
+  return `${today.getFullYear()}-0${today.getMonth() + 1}-${today.getDate()}`;
+};
+
+export { loadDustData, loadNewsData, loadMyTownData };

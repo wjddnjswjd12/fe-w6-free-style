@@ -173,20 +173,42 @@ header {
   .tom_rightDiv {
     margin-top: 50px;
     width: 50%;
+
     .tom_right_myTown {
       width: 70%;
       margin: 0px auto;
-
+      position: relative;
       flex-direction: column;
       .myTown_subtitle {
         margin: 0px auto;
         background-color: rgb(253, 227, 113);
-        width: 70%;
+        width: 100%;
+        text-align: center;
       }
       .myTown_info {
         background: #fff;
         display: flex;
         flex-direction: column;
+
+        .myTown_info_chart {
+          display: flex;
+          align-items: center;
+          text-align: center;
+        }
+      }
+      .pointer {
+        position: absolute;
+        bottom: -10px;
+        left: 120px;
+        font-size: 50px;
+      }
+      button {
+        text-align: right;
+        background: none;
+        border: none;
+      }
+      button:hover {
+        color: gray;
       }
     }
   }

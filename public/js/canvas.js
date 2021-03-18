@@ -76,8 +76,10 @@ function drawChart() {
   chart.fill();
   chart.fillStyle = "black";
 }
+
 const data = [25, 25, 75, 55];
 const color = ["blue", "green", "orange", "red"];
+
 function drawArc(chart) {
   let startAngle = 0;
   let nextAngle = 0;
@@ -103,6 +105,4 @@ function getRadian(degree) {
   return (degree * Math.PI) / 180;
 }
 
-drawChart();
-
-export { drawMap };
+export { drawMap, drawChart };
