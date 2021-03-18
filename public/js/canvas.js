@@ -34,7 +34,7 @@ function drawMap(ctx) {
   };
 
   ctx.addEventListener("click", (e) => {
-    checkMouseMovement(e, draw);
+    checkMouseClick(e, draw);
   });
 }
 
@@ -43,13 +43,12 @@ function markCity(ctx, x, y, name, color) {
   ctx.beginPath();
   ctx.arc(x, y, 20, 0, 2 * Math.PI);
   ctx.fill();
-
   ctx.font = "12px Verdana ";
   ctx.fillStyle = "#fff";
   ctx.fillText(name, x - 13, y + 4);
 }
 
-function checkMouseMovement(evt, ctx) {
+function checkMouseClick(evt, ctx) {
   let x = evt.offsetX;
   let y = evt.offsetY;
 
@@ -62,6 +61,19 @@ function checkMouseMovement(evt, ctx) {
     }
   });
 }
+
+// function checkMouseMovement(evt, ctx) {
+//   let x = evt.offsetX;
+//   let y = evt.offsetY;
+
+//   sidoLists.forEach((sido) => {
+//     if (getDistanceBtwPoints(x, sido.x, y, sido.y) <= radius) {
+//       markCity(ctx, sido.x, sido.y, sido.name, "pink");
+//     } else if (!getDistanceBtwPoints(x, sido.x, y, sido.y) <= radius) {
+//       markCity(ctx, sido.x, sido.y, sido.name, "#ffba3b");
+//     }
+//   });
+// }
 
 function getDistanceBtwPoints(x1, x2, y1, y2) {
   return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
