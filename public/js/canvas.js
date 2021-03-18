@@ -97,12 +97,20 @@ function drawArc(chart) {
       true
     );
     chart.fill();
+    markValue(chart);
     startAngle = 360 - nextAngle;
   }
 }
 
 function getRadian(degree) {
   return (degree * Math.PI) / 180;
+}
+
+function markValue(chart) {
+  chart.fillStyle = "black";
+  chart.fillText("50", 10, 98);
+  chart.fillText("100", 44, 53);
+  chart.fillText("250", 195, 46);
 }
 
 export { drawMap, drawChart };

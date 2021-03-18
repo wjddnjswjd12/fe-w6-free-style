@@ -2,7 +2,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  outline: 1px solid red;
 }
 
 ul li {
@@ -177,7 +176,7 @@ header {
     .tom_right_myTown {
       width: 70%;
       margin: 0px auto;
-      position: relative;
+      box-shadow: 12px 6px 5px rgb(255, 240, 219);
       flex-direction: column;
       .myTown_subtitle {
         margin: 0px auto;
@@ -192,6 +191,7 @@ header {
 
         .myTown_info_chart {
           display: flex;
+          position: relative;
           align-items: center;
           text-align: center;
         }
@@ -209,6 +209,13 @@ header {
       }
       button:hover {
         color: gray;
+      }
+      .myTown_info_table {
+        background: #fff;
+        table {
+          margin: 0px auto;
+          text-align: center;
+        }
       }
     }
   }
