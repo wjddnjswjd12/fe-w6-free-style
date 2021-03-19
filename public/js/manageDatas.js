@@ -31,9 +31,9 @@ const loadNewsData = () => {
   }).then((res) => res.json());
 };
 
-const loadMyTownData = () => {
+const loadMyTownData = (place) => {
   let body = {
-    station: "서초구",
+    station: place,
   };
   return fetch("http://localhost:3000/myTown", {
     method: "POST",
@@ -41,8 +41,6 @@ const loadMyTownData = () => {
     body: JSON.stringify(body),
   }).then((res) => res.json());
 };
-
-loadMyTownData();
 
 const getMiseGrade = (grade) => {
   //

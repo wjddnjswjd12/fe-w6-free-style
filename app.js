@@ -3,6 +3,7 @@ const sassMiddleware = require("node-sass-middleware");
 const dustData = require("./dustData");
 const newsData = require("./newsData");
 const myTownData = require("./myTownData");
+const fs = require("fs");
 
 const path = require("path");
 const app = express();
@@ -23,6 +24,14 @@ app.use(
 );
 
 app.use(express.static(path.join(__dirname, "public")));
+
+const stationList = JSON.parse(
+  fs.readFileSync("./public/datas/stationList.json", "utf8")
+);
+
+app.get("/stationList", (req, res, next) => {
+  res.json(stationList);
+});
 
 app.post("/city", (req, res) => {
   dustData(req.body.sidoName, (body) => {

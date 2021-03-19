@@ -14,17 +14,21 @@ function renderMiseMovement() {
   });
 }
 
-function renderMyTownInfo() {
+function renderMyTownInfo(town) {
   drawChart();
-  loadMyTownData().then((result) => {
+  loadMyTownData(town).then((result) => {
     JennySelector("myTown_info_place").innerHTML = makeMyTownHtml(
-      result.list[0].pm10Value
+      town,
+      result.list[0]
     );
     rotateScroll(result.list[0].pm10Value);
     JennySelector("myTown_info_table").innerHTML = makeTableHTML(
       result.list[0]
     );
     console.log(result.list[0]);
+  });
+  JennySelector("chooseStn_btn").addEventListener("click", () => {
+    JennySelector("myTown_popup").style.display = "flex";
   });
 }
 
@@ -80,8 +84,10 @@ const getMyTownGrade = (grade) => {
   }
 };
 
-function makeMyTownHtml(value) {
-  return `<span><strong>서초구</strong>의 미세먼지 농도는, <strong>${value}</strong> 입니다.</span><br>😫`;
+function makeMyTownHtml(town, value) {
+  return `<span><strong>${town}</strong>의 미세먼지 농도는, <strong>${
+    value.pm10Value
+  }</strong> 입니다.</span><br>${getMyTownGrade(value.pm10Grade1h)}`;
 }
 
 function rotateScroll(pmVal) {

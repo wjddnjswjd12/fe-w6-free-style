@@ -202,12 +202,12 @@ header {
         left: 120px;
         font-size: 50px;
       }
-      button {
+      .chooseStn_btn {
         text-align: right;
         background: none;
         border: none;
       }
-      button:hover {
+      .chooseStn_btn:hover {
         color: gray;
       }
       .myTown_info_table {
@@ -217,6 +217,22 @@ header {
           text-align: center;
         }
       }
+    }
+  }
+  .myTown_popup {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    left: 40%;
+    background: rgb(253, 227, 113);
+    height: 200px;
+    width: 300px;
+    border: 1px solid goldenrod;
+    align-items: center;
+    justify-content: space-around;
+
+    .send {
+      padding: 10px;
     }
   }
 }
