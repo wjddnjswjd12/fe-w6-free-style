@@ -10,7 +10,6 @@ let datas = {};
 const renderSidoList = () => {
   loadItems().then((result) => {
     datas = result;
-    console.log(datas);
 
     const sidos = result.map((v) => v.지역명);
     const uniqueSidos = [...new Set(sidos)];

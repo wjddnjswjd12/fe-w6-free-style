@@ -12,15 +12,15 @@ header {
   width: 100%;
   display: flex;
   flex-direction: column;
-
+  background-color: gray;
   .header__top {
-    margin: 0px auto;
+    margin: 30px auto;
     display: flex;
     align-items: center;
   }
   .header__top_logo {
-    width: 100px;
-    height: 70px;
+    width: 80px;
+    height: 50px;
   }
   .header__top_text {
     font-size: 30px;
@@ -31,6 +31,8 @@ header {
     justify-content: space-between;
     width: 70%;
     margin: 0px auto;
+    color: white;
+    background: rgb(70, 40, 1);
     ul {
       width: 40%;
       height: 60px;

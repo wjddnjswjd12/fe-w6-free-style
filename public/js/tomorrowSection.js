@@ -4,7 +4,6 @@ import { JennySelector } from "./utils.js";
 
 function renderMiseMovement() {
   loadNewsData().then((result) => {
-    console.log(result);
     JennySelector("tom_left_img").innerHTML = makeImgHtml(
       result.list[0].imageUrl7
     );
@@ -25,7 +24,6 @@ function renderMyTownInfo(town) {
     JennySelector("myTown_info_table").innerHTML = makeTableHTML(
       result.list[0]
     );
-    console.log(result.list[0]);
   });
   JennySelector("chooseStn_btn").addEventListener("click", () => {
     JennySelector("myTown_popup").style.display = "flex";

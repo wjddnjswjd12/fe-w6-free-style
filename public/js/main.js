@@ -4,6 +4,6 @@ import { renderSidoList } from "./popUp.js";
 window.onload = function () {
   drawTodayMap();
   renderMiseMovement();
-  renderMyTownInfo("서초구");
   renderSidoList();
+  renderMyTownInfo("서초구");
 };

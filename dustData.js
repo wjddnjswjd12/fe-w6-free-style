@@ -29,6 +29,7 @@ const dustData = (sidoName, callback) => {
     },
     function (error, response, body) {
       callback(body);
+      console.log(body);
     }
   );
 };
